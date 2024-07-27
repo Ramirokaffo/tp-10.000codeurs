@@ -1,0 +1,77 @@
+
+body {
+    padding: 10% 20%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+main {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 10%;
+}
+
+h1 {
+    text-align: center;
+    color: green;
+    font-weight: 100;
+}
+
+.flex-div {
+    display: flex;
+    gap: 20px;
+}
+
+.flex-div > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-div > div span {
+    color: red;
+}
+
+h3 {
+    color: purple;
+}
+
+table {
+    border-collapse : collapse;
+    border: 1px solid black;
+    width: 100%;
+}
+
+table th {
+    color: red;
+}
+
+table td, table th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+
+
+@media screen and (max-width: 901px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    body {
+        padding: 10% 5%;
+    }
+
+    main {
+        padding: 5%;
+    }
+
+    .flex-div {
+
+        flex-direction: column;
+
+    }
+table td, table th {
+    padding: 2px;
+}
+
+  }
