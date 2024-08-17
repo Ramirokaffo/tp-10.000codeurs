@@ -1,0 +1,56 @@
+
+
+body {
+    margin: 0px;
+    background-color: lightslategray;
+    animation-name: color;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+
+
+.sol {
+    background-color: #71ee7e;
+    height: 600px;
+    width: 100%;
+    margin-top: 300px;
+    position: absolute;
+}
+
+.soleil {
+    background-color: #f1ca01;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation-name: animeSun;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes animeSun {
+    0% {
+        transform: translate(-200px, 300px);
+        background-color: #234500;
+    }
+    25% {
+        transform: translate(25vw, 100px);
+        background-color: #f1ca0f;
+    }
+    50% {
+        transform: translate(50vw, -100px);
+    }
+    75% {
+        transform: translate(75vw, 100px);
+        background-color: #f1ca0f;
+    }
+    100% {
+        transform: translate(100vw, 400px);
+        background-color: #ef4e37;
+        
+    }
+}
