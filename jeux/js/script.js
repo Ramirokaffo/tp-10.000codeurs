@@ -1,3 +1,4 @@
+// Declaration des variables
 
 var convasWidth = 600;
 var canvasHeight = 600;
@@ -233,11 +234,9 @@ window.onload = function () {
         }
         this.setNewPosition = function () {
             // Determine la nouvelle position de laa pomme de maniere aleatoire
-            console.log("Je suis dans setNewPosition")
             var newX = Math.round(Math.random() * (widthInBlock - 1));
             var newY = Math.round(Math.random() * (heightInBlock - 1));
             this.position = [newX, newY];
-            console.log("Position");
         };
 
         this.isOnSnake = function (snakeToCheck) {
@@ -248,7 +247,6 @@ window.onload = function () {
                 if (this.position[0] === snakeToCheck.body[i][0] && this.position[1] === snakeToCheck.body[i][1]) {
                     isNoOnSnake = true;
                 }
-
             }
             return isNoOnSnake;
 
@@ -280,7 +278,6 @@ window.onload = function () {
                 break;
             default:
                 return;
-
         }
 
         snakee.setDirection(newDirection);
