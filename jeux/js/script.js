@@ -16,6 +16,7 @@ window.onload = function () {
     init();
 
     function init() {
+        // Fonction d'entrée qui dessine l'espace de jeux et lance le jeux
         var canvas = document.createElement("canvas");
         canvas.width = convasWidth;
         canvas.height = canvasHeight;
@@ -37,6 +38,7 @@ window.onload = function () {
         score = 0;
         refreshCanvas();
     }
+
 
     function refreshCanvas() {
         snakee.advance();
@@ -61,6 +63,7 @@ window.onload = function () {
     }
 
     function gameOver() {
+        // Cette fonction s'execute lorsque l'utilisateur perd le jeux
         ctx.save();
         ctx.font = "bold 70px sans-serif";
         ctx.fillStyle = "red";
@@ -79,6 +82,7 @@ window.onload = function () {
     }
 
     function restart() {
+        // Permet de redemarer le jeux
         snakee = new Snake([[6, 4], [5, 4], [4, 4], [3, 4]], "right");
         applee = new Apple([10, 10]);
         score = 0;
@@ -87,6 +91,7 @@ window.onload = function () {
     }
 
     function drowScore() {
+        // Affiche le score du jeux
         ctx.save();
         ctx.font = "bold 200px sans-serif";
         ctx.fillStyle = "gray";
@@ -99,6 +104,7 @@ window.onload = function () {
     }
 
     function drawBlock(ctx, position) {
+        //  Dessine un point (qui constitue le corps du serpent)
         var x = position[0] * blockSize;
         var y = position[1] * blockSize;
         ctx.fillRect(x, y, blockSize, blockSize);
@@ -111,6 +117,7 @@ window.onload = function () {
         this.eateApple = false;
 
         this.draw = function () {
+            // Permet de dessiner le serpent
             ctx.save();
             ctx.fillStyle = "blue";
             // ctx.fillStyle = "#ff0000";
@@ -121,6 +128,7 @@ window.onload = function () {
         };
 
         this.advance = function () {
+            // Fait avancer le serpent
             var nextPosition = this.body[0].slice();
             switch (this.direction) {
                 case "left":
@@ -148,6 +156,7 @@ window.onload = function () {
         };
 
         this.setDirection = function (newDirection) {
+            // Determine la direction du serpent
             var alowwDirection;
             switch (this.direction) {
                 case "left":
@@ -168,6 +177,7 @@ window.onload = function () {
         };
 
         this.checkCollision = function () {
+            // Cette determine s'il y a collision ou pas et retourne un booleen
             var wallColision = false;
             var snakeCollision = false;
             var head = this.body[0];
@@ -194,6 +204,7 @@ window.onload = function () {
         }
 
         this.isEatingApple = function (appleToEat) {
+            // Determine si le serpent intercepte la pomme
             var head = this.body[0];
             if (head[0] === appleToEat.position[0] && head[1] === appleToEat.position[1]) {
                 return true;
@@ -221,6 +232,7 @@ window.onload = function () {
             ctx.restore();
         }
         this.setNewPosition = function () {
+            // Determine la nouvelle position de laa pomme de maniere aleatoire
             console.log("Je suis dans setNewPosition")
             var newX = Math.round(Math.random() * (widthInBlock - 1));
             var newY = Math.round(Math.random() * (heightInBlock - 1));
@@ -229,6 +241,7 @@ window.onload = function () {
         };
 
         this.isOnSnake = function (snakeToCheck) {
+            // Verifie si la nouvelle pomme se trouve ou pas sur le corps du serpent
             var isNoOnSnake = false;
 
             for (var i = 0; i < snakeToCheck.body.length; i++) {
@@ -244,8 +257,10 @@ window.onload = function () {
 
 
     document.onkeydown = function handleDown(e) {
+        // Evenement qui intercepte les touches ddu clavier
         var key = e.key;
         if (key == " ") {
+            // Lorsque l'utilisateur appuie sur Espace, on redemare la jeux
             restart();
             return;
         }
